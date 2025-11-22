@@ -533,3 +533,104 @@ body {
         left: 100%;
     }
 }
+
+/* =========================== */
+/*      MENU HAMBURGUER        */
+/* =========================== */
+
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+#menuToggle span {
+    width: 28px;
+    height: 3px;
+    background: var(--color-white);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+/* TEMA LIGHT */
+:root.light {
+    --color-white: #000;
+    --color-black: #fff;
+    --color-blue: #007bff;
+}
+
+/* Switch tema */
+#themeToggle {
+    margin-left: 15px;
+    padding: 6px 10px;
+    font-size: 1.6rem;
+    background: transparent;
+    border: 2px solid var(--color-white);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--color-white);
+    transition: .3s;
+}
+
+#themeToggle:hover {
+    filter: brightness(.8);
+}
+
+/* =========================== */
+/*      MENU MOBILE – ATIVO    */
+/* =========================== */
+.navbar.active {
+    right: 0;
+}
+
+/* =========================== */
+/*      MOBILE (menu)          */
+/* =========================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100vh;
+        background: var(--color-black);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .navbar ul li a {
+        font-size: 2rem;
+    }
+
+    #menuToggle {
+        display: flex;
+    }
+
+    /* Efeito X */
+    #menuToggle.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+    }
+
+    #menuToggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menuToggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+    }
+
+    #themeToggle {
+        position: relative;
+        z-index: 999;
+    }
+}
